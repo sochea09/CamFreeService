@@ -7,8 +7,7 @@ let Mailer = require("../../utils/Mailer.js");
 
 //let Register = module.exports = {};
 let Register = require("../User/Register.js");
-let registrationValidation = require("../../utils/validations/User.js");
-//Validator
+let validation = require("../../utils/Validation.js");
 
 Register.randomCode = function* () {
 
@@ -21,6 +20,22 @@ Register.randomCode = function* () {
     return text;
 };
 Register.create = function * () {
+
+    let rules = [{
+            email: 'unique:user-email|required',
+            password: 'min:4|required'
+        }];
+
+    let validate = validation.validate(this.body, rules);
+    var error = validation.getErrorMessage();
+    if( validate == false){
+        this.ok(error);
+    }else{
+        console.log('yyyyy');
+    }
+
+
+    return;
 
     try {
         let validate = registrationValidation.validateRegisterUser(this.body);
