@@ -14,6 +14,14 @@ module.exports = {
             method: "GET"
         }]
     },
+    auth: {
+        prefix: "/auth",
+        routes: [{
+            handler: "User@signin",
+            method: "POST",
+            path: "/signin"
+        }]
+    },
     userPub: {
         prefix: "/user",
         routes: [{
