@@ -29,5 +29,48 @@ module.exports = {
             method: "POST",
             path: "/register"
         }]
+    },
+    lesson_category: {
+        prefix: "/lesson-category",
+        routes: [{
+            before: "Auth@validate",
+            handler: "LessonCategory@create",
+            method: "POST",
+            path: "/create"
+        }]
+    },
+    lesson: {
+        prefix: "/lesson",
+        routes: [{
+            before: "Auth@validate",
+            handler: "Lesson@create",
+            method: "POST",
+            path: "/create"
+        }]
+    },
+    youtubeUpload: {
+        prefix: "/youtube-upload",
+        routes: [
+            {
+                before: "Auth@validate",
+                handler: "Upload@run",
+                method: "POST",
+                path: "/"
+            },
+            {
+                handler: "Upload@getAuthorizationCode",
+                method: "POST",
+                path: "/code"
+            },
+            {
+                handler: "Upload@getToken",
+                method: "POST",
+                path: "/token"
+            }, {
+                handler: "Upload@resumableUpload",
+                method: "POST",
+                path: "/resume"
+            }
+        ]
     }
 };

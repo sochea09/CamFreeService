@@ -2,6 +2,6 @@ module.exports = {
 
     Socket: {
         namespace: "/",
-        handler: "Socket@savada"
+        handler: "Socket@camfree"
     }
 };

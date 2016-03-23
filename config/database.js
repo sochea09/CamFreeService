@@ -1,6 +1,6 @@
 module.exports = {
     username: "root",
-    password: "",
+    password: "tsc",
     database: "cam_free",
     // custom host; default: localhost
     host: "127.0.0.1",

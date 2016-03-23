@@ -28,11 +28,21 @@ Auth.signin = function* () {
                     }, {
                         username: this.body.email
                     }],
-                    password: utils.hash(this.body.password)
+                    password: utils.hash(this.body.password),
+                    status : 'active'
                 }
             });
             if (!user) return this.fail({error:'User not found.'}, "User not found.");
-            user = user.toJSON();
+
+            let user_json = user.toJSON();
+
+            let role = yield models.role.find({
+                attributes : ['title'],
+                where : {
+                    id : user.role_id
+                }
+            });
+            user_json.role = role.title;
             this.ok(user);
         }
     }catch(e){

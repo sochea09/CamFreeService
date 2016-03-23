@@ -4,7 +4,7 @@
   "description": "A server side JavaScript MVC framework that support ECMAScript 6",
   "main": "./index.js",
   "scripts": {
-    "start": "nodemon --harmony index.js",
+    "start": "node --harmony index.js",
     "node": "node --harmony index.js",
     "debug": "./node_modules/.bin/nodemon --harmony index.js",
     "dev": "./node_modules/.bin/nodemon --harmony index.js -e development",
@@ -63,6 +63,9 @@
     "underscore": "^1.8.3",
     "underscore.string": "^3.2.0",
     "validator": "^4.0.5",
-    "validatorjs": "^2.0.3"
+    "validatorjs": "^2.0.3",
+    "node-youtube-resumable-upload": "^0.2.1",
+    "youtube-api": "^1.4.0",
+    "opn": "^4.0.0"
   }
 }

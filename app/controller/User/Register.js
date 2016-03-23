@@ -47,7 +47,7 @@ Register.create = function * () {
             });
 
             user = user.toJSON();
-            this.ok(user,"Thanks for signing up. Please check your email for confirmation!");
+            this.ok(user);
         }
     }catch (err) {
         this.error(err);
