@@ -57,8 +57,8 @@ Upload.getToken = function* () {
 
     // Set your authorization code here
     let auth_code = this.query.code;
-
     oauth2Client.getToken(auth_code, function (err, tokens) {
+
         if (err) {
             console.log('Error getting token.', err);
         }
@@ -153,7 +153,7 @@ Upload.run = function* () {
     console.log('ID', data[0].id);
     res.videoId = data[0].id;
 
-    yield SocketRes.onTutorial(res,this.auth.id);
+    yield SocketRes.onLesson(res,this.auth.id);
     //this.res.connection.setTimeout(0);
     return this.ok(res, "Success.");
 };

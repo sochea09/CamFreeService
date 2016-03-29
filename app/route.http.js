@@ -59,12 +59,12 @@ module.exports = {
             },
             {
                 handler: "Upload@getAuthorizationCode",
-                method: "POST",
+                method: "GET",
                 path: "/code"
             },
             {
                 handler: "Upload@getToken",
-                method: "POST",
+                method: "GET",
                 path: "/token"
             }, {
                 handler: "Upload@resumableUpload",
