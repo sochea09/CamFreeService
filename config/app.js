@@ -48,6 +48,6 @@ module.exports = {
         "news": "https://storage.googleapis.com/dev-savada-static/news/",
         "events": "https://storage.googleapis.com/static-savada-static/events/",
         "video": "https://storage.googleapis.com/static-savada-static/video/",
-        "media": "https://storage.googleapis.com/static-savada-static/media/"
+        "media": "https://camfree.s3.amazonaws.com/media/"
     }
 };

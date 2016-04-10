@@ -4,6 +4,6 @@ module.exports = {
         "events": "https://storage.googleapis.com/test-savada-static/events/",
         "video": "https://storage.googleapis.com/test-savada-static/video/",
         "news": "https://storage.googleapis.com/test-savada-static/news/",
-        "media": "https://storage.googleapis.com/test-savada-static/media/"
+        "media": "https://camfree.s3.amazonaws.com/media/"
     }
 };

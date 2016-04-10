@@ -72,5 +72,21 @@ module.exports = {
                 path: "/resume"
             }
         ]
+    },
+    media: {
+        prefix: "/media",
+        routes: [{
+            handler: "Medias@uploadimage",
+            method: "POST",
+            path: "/uploadimage"
+        }, {
+            handler: "Medias@uploadvideo",
+            method: "POST",
+            path: "/uploadvideo"
+        }, {
+            handler: "Medias@uploadImageThumbnail",
+            method: "POST",
+            path: "/upload-image-with-thumbnail"
+        }]
     }
 };

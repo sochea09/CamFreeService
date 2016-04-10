@@ -10,6 +10,7 @@ let Lesson = module.exports = {};
 Lesson.create = function * () {
     try{
         let rules = [{
+            lesson_category_id: 'required',
             description: 'required',
             title: 'required'
         }];
@@ -24,7 +25,11 @@ Lesson.create = function * () {
             let lesson = yield models.lesson.create({
                 title: this.body.title,
                 description: this.body.description,
+                begin_file_name: (this.body.begin_file_name) ? this.body.begin_file_name : '',
+                finish_file_name: (this.body.finish_file_name) ? this.body.finish_file_name : '',
+                vdo_id : (this.body.vdo_id) ? this.body.vdo_id : '',
                 order: orderNum,
+                lesson_category_id: this.body.lesson_category_id,
                 created_by: this.auth.id
             });
             lesson = lesson.toJSON();

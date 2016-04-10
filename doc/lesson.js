@@ -6,6 +6,10 @@
  @apiDescription Create new lesson
  @apiParam {String} title lesson title.
  @apiParam {String} description lesson description.
+ @apiParam {String} [begin_file_name] lesson beginning file name.
+ @apiParam {String} [finish_file_name] lesson finish file name.
+ @apiParam {String} [vdo_id] lesson video tutorial.
+ @apiParam {String} lesson_category_id lesson category id.
  @apiParamExample {json} Request-Example:
  {
      "title": "Beginning MsWord",
