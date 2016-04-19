@@ -7,3 +7,4 @@ let lessonCategory = require("./LessonCategory/LessonCategory");
 let Controller = module.exports = {};
 
 Controller.create = lessonCategory.create;
+Controller.list  = lessonCategory.list;

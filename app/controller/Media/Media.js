@@ -52,6 +52,7 @@ Medias.ext = function() {
         "dll": "application/x-msdownload",
         "dmg": "application/octet-stream",
         "doc": "application/msword",
+        "docx": "application/msword",
         "dot": "application/msword",
         "dtd": "application/xml-dtd",
         "dvi": "application/x-dvi",
@@ -174,6 +175,7 @@ Medias.ext = function() {
         "xbm": "image/x-xbitmap",
         "xhtml": "application/xhtml+xml",
         "xls": "application/vnd.ms-excel",
+        "xlsx": "application/vnd.ms-excel",
         "xml": "application/xml",
         "xpm": "image/x-xpixmap",
         "xsl": "application/xml",
@@ -205,7 +207,7 @@ Medias.uploadimage = function * () {
             ext = ".jpg";
         }
         let imgName = utils.uuidV1() + ext;
-        let fullPath = app.path + "/public/img/temp/" + imgName;
+        let fullPath = app.path + "/public/upload/img/temp/" + imgName;
         let contentTypes = this.req.file.mimetype;
 
         fs.writeFileSync(fullPath, this.req.file.buffer, 'binary');
@@ -213,6 +215,37 @@ Medias.uploadimage = function * () {
         let result = yield uploader.saveFile(this.req.file, "media/" + imgName, contentTypes);
 
         let url = camfree.app.config.storage.media + imgName;
+        console.log("path_file:::: " +url);
+        img_uplading.name = imgName;
+        img_uplading.url = url;
+
+        this.ok(img_uplading, "Success");
+
+    } catch (error) {
+        this.fail({}, this.__("Error upload this photo."));
+    }
+};
+Medias.uploadfile = function * () {
+    console.log("Starting uploading....");
+    debug("Upload File: ", this.req.file);
+    debug("Upload File: ", this.req);
+    let img_uplading = {};
+    console.log(this.req.file);
+    try {
+        let ext = Medias.ext.getExt(this.req.file.originalname);
+        console.log(ext);
+        if(ext === "") {
+            ext = ".jpg";
+        }
+        let imgName = utils.uuidV1() + ext;
+        let fullPath = app.path + "/public/upload/file/temp/" + imgName;
+        let contentTypes = this.req.file.mimetype;
+
+        fs.writeFileSync(fullPath, this.req.file.buffer, 'binary');
+
+        let result = yield uploader.saveFile(this.req.file, "file/" + imgName, contentTypes);
+
+        let url = camfree.app.config.storage.file + imgName;
         console.log("path_file" +url);
         img_uplading.name = imgName;
         img_uplading.url = url;

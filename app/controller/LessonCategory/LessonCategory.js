@@ -34,3 +34,17 @@ LessonCategory.create = function * () {
         this.error(err);
     }
 }
+
+LessonCategory.list = function * () {
+    try {
+        let lcats = yield models.lesson_category.findAll();
+        if (!lcats) return this.fail({}, this.__("Lesson Category not found"));
+        let data = {
+            status: 1,
+            data: lcats
+        };
+        this.ok(data);
+    } catch (err) {
+        this.error(err);
+    }
+};

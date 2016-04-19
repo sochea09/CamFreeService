@@ -39,3 +39,16 @@ Lesson.create = function * () {
         this.error(err);
     }
 }
+Lesson.list = function * () {
+    try {
+        let list = yield models.lesson.findAll();
+        if (!list) return this.fail({}, this.__("Lesson not found"));
+        let data = {
+            status: 1,
+            data: list
+        };
+        this.ok(data);
+    } catch (err) {
+        this.error(err);
+    }
+};
